@@ -2,7 +2,7 @@ package queue;
 
 import java.util.ArrayList;
 
-public class PriorityQueueHeap<T> {
+public class PriorityQueueHeap<T> implements Queue<T>{
     private List<PriorityItem<T>> heap;
 
     
