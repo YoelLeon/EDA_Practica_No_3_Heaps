@@ -1,4 +1,4 @@
-package heap;
+package queue;
 
 import java.util.ArrayList;
 
@@ -11,12 +11,11 @@ public class Heap<E extends Comparable<E>> {
     }
 
     public void insert(E element) {
-        
-        
+
     }
 
     public E remove() {
-        
+
         return null;
     }
 

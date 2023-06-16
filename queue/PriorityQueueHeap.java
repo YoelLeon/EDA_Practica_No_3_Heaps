@@ -1,4 +1,5 @@
-package Ejercicio5;
+package queue;
+
 import java.util.*;
 
 public class PriorityQueueHeap<T> {
