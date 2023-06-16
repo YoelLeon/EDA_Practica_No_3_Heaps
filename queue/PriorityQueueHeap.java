@@ -1,6 +1,6 @@
 package queue;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class PriorityQueueHeap<T> {
     private List<PriorityItem<T>> heap;
