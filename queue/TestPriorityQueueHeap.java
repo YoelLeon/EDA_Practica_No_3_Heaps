@@ -42,5 +42,29 @@ public class TestPriorityQueueHeap {
             queue.dequeue();
             System.out.println(queue);
         }
+
+        SkipList<Integer> sl = new SkipList<Integer>();
+        sl.insert(5);
+        System.out.println(sl);
+        sl.insert(7);
+        System.out.println(sl);
+        sl.insert(2);
+        System.out.println(sl);
+        sl.insert(3);
+        System.out.println(sl);
+        sl.insert(1);
+        System.out.println(sl);
+
+        System.out.println("Quitando elementos de la cola de prioridad");
+        sl.remove(7);
+        System.out.println(sl);
+        sl.remove(5);
+        System.out.println(sl);
+        sl.remove(2);
+        System.out.println(sl);
+        sl.remove(3);
+        System.out.println(sl);
+        sl.remove(1);
+        System.out.println(sl);
     }
 }

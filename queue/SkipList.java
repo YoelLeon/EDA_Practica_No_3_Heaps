@@ -87,4 +87,22 @@ public class SkipList<T extends Comparable<T>> {
             forward = new Node[level + 1];
         }
     }
+
+    public String toString() {
+        String str = "SkipList{";
+        Node<T> current = head.forward[0];
+        while (current != null) {
+            str += "\n";
+            Node<T> levelStart = current;
+            str += "[ ";
+            while (current != null) {
+                str += current.value + " ";
+                current = current.forward[0];
+            }
+            str += "]";
+            current = levelStart.forward[0];
+        }
+        str += "\n}";
+        return str.toString();
+    }
 }
