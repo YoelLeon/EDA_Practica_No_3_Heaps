@@ -100,4 +100,8 @@ public class Heap<T extends Comparable<T>> {
         str += "]";
         return str;
     }
+
+    public boolean isEmpty() {
+        return heap.isEmpty();
+    }
 }
