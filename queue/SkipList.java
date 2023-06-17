@@ -1,3 +1,5 @@
+package queue;
+
 import java.util.Random;
 
 public class SkipList<T extends Comparable<T>> {

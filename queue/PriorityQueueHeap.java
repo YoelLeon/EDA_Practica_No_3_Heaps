@@ -18,9 +18,6 @@ public class PriorityQueueHeap<T extends Comparable<T>> {
     }
     
     public T dequeue() throws ExceptionIsEmpty {
-    if (heap.isEmpty()) {
-        throw new ExceptionIsEmpty("Priority queue is empty");
-    }
     PriorityElement<T> priorityElement = heap.remove();
     skipList.remove(priorityElement);
     return priorityElement.getElement();
