@@ -1,28 +1,57 @@
 package queue;
 
-import java.util.ArrayList;
+import myExceptions.ExceptionIsEmpty;
 
-public class PriorityQueueHeap<T> implements Queue<T>{
-    private List<PriorityItem<T>> heap;
+public class PriorityQueueHeap<T extends Comparable<T>> {
+    private Heap<PriorityElement<T>> heap;
 
-    
     public PriorityQueueHeap() {
-        heap = new ArrayList<>();
+        heap = new Heap<PriorityElement<T>>();
     }
-    
-    public void enqueue(T x, int p) {
-        
-    }
-    public T dequeue() {
 
+    public void enqueue(T x, int p) {
+        heap.insert(new PriorityElement<T>(x, p));
     }
-    
-    public T front() {
-        
+
+    public T dequeue() throws ExceptionIsEmpty {
+        return heap.remove().getElement();
     }
-    
-    public T back() {
-        
+
+    public T front() throws ExceptionIsEmpty {
+        return heap.first().getElement();
     }
-    
+
+    public T back() throws ExceptionIsEmpty {
+        return heap.last().getElement();
+    }
+
+    private class PriorityElement<E extends Comparable<E>> implements Comparable<PriorityElement<E>> {
+        private E element;
+        private int priority;
+
+        public PriorityElement(E element, int priority) {
+            this.element = element;
+            this.priority = priority;
+        }
+
+        public E getElement() {
+            return element;
+        }
+
+        public int getPriority() {
+            return priority;
+        }
+
+        public int compareTo(PriorityElement<E> other) {
+            return Integer.compare(this.priority, other.getPriority());
+        }
+
+        public String toString() {
+            return this.element.toString();
+        }
+    }
+
+    public String toString() {
+        return heap.toString();
+    }
 }
