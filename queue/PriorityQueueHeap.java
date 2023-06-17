@@ -3,19 +3,28 @@ package queue;
 import myExceptions.ExceptionIsEmpty;
 
 public class PriorityQueueHeap<T extends Comparable<T>> {
-    private Heap<PriorityElement<T>> heap;
+        private Heap<PriorityElement<T>> heap;
+        private SkipList<PriorityElement<T>> skipList;
 
     public PriorityQueueHeap() {
-        heap = new Heap<PriorityElement<T>>();
-    }
+            heap = new Heap<>();
+            skipList = new SkipList<>();
+     }
 
-    public void enqueue(T x, int p) {
-        heap.insert(new PriorityElement<T>(x, p));
+    public void enqueue(T element, int priority) {
+        PriorityElement<T> priorityElement = new PriorityElement<>(element, priority);
+        heap.insert(priorityElement);
+        skipList.insert(priorityElement);
     }
-
+    
     public T dequeue() throws ExceptionIsEmpty {
-        return heap.remove().getElement();
+    if (heap.isEmpty()) {
+        throw new ExceptionIsEmpty("Priority queue is empty");
     }
+    PriorityElement<T> priorityElement = heap.remove();
+    skipList.remove(priorityElement);
+    return priorityElement.getElement();
+}
 
     public T front() throws ExceptionIsEmpty {
         return heap.first().getElement();
@@ -50,6 +59,7 @@ public class PriorityQueueHeap<T extends Comparable<T>> {
             return this.element.toString();
         }
     }
+    
 
     public String toString() {
         return heap.toString();
