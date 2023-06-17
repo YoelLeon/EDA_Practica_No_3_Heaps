@@ -7,12 +7,12 @@ public class PriorityQueueHeap<T extends Comparable<T>> {
         private SkipList<PriorityElement<T>> skipList;
 
     public PriorityQueueHeap() {
-            heap = new Heap<>();
-            skipList = new SkipList<>();
+            heap = new Heap<PriorityElement<T>>();
+            skipList = new SkipList<PriorityElement<T>>();
      }
 
-    public void enqueue(T element, int priority) {
-        PriorityElement<T> priorityElement = new PriorityElement<>(element, priority);
+    public void enqueue(T x, int p) {
+        PriorityElement<T> priorityElement = new PriorityElement<T>(x, p);
         heap.insert(priorityElement);
         skipList.insert(priorityElement);
     }
